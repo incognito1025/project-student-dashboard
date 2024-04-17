@@ -1,33 +1,20 @@
-import React from "react";
-import { useState } from "react";
-import "./index.css";
-import NavBar from "./Components/NavBar";
-import CohortList from "./Components/CohortList";
-import StudentList from "./Components/StudentList";
-import CodewarsDetails from "./Components/CodewarsDetails";
-import data from "./data/data.json";
+import OneOnOneForm from "./OneOnOneForm";
+import OneOnOneNotesList from "./OneOnOneNotesList";
 
-
-
-function App() {
-  
-  return (
-    <div className="App">
-      <NavBar />
-        <div className="grid-container">
-      <CohortList data = {data}/>
-      <StudentList data = {data} />
-    </div>
-      </div>
-  ); 
+function OneOnOneSection() {
+    return (
+        <div>
+            <OneOnOneForm onAddNote={onAddNote} />
+            <OneOnOneNotesList notes={notes} />
+        </div>
+    );
 }
 
-export default App;
 
+export default OneOnOneSection;
 
 /*
 
-//
 Components Map:
 
 App  (Contains everything below)
@@ -41,7 +28,6 @@ App  (Contains everything below)
           OneOnOneSection  (Section where we can view notes and write new ones)
                OneOnOneForm  (form to write a new note)
                OneOnOneNotesList  (View notes all ready written)
-
 
 
 */
