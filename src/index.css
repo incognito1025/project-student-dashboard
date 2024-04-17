@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
   margin : 0;
 }
@@ -26,4 +26,151 @@ h1 {
 
 .cohorts {
   text-emphasis-color: hsl(145, 55%, 71%);
+} */
+
+.card {
+  border: 1px solid hsl(145, 55%, 71%);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
 }
+
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right:  20px;
+  float: left;
+} 
+
+
+
+/*
+
+lab intro to react 
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-wrapper {
+  background-color: #ADD7E6;
+  height: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 15px;
+}
+
+.navbar button {
+  margin-left: 15px;
+  float: right;
+  font-size: 7px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 25px;
+  
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: row;
+  font-weight: 100;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+  border: 1px solid gray;
+  font-size: xx-small;
+  text-align: center;
+}
+
+.user-profile img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  float: left;
+  margin-right: 10px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 3;
+  border: 1px solid gray;
+  font-size: xx-small;
+  text-align: center;
+  gap:  25px;
+  
+}
+
+.contact-user-photo img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  float: left;
+  margin-right: 10px;
+}
+
+.contact-user-card {
+  display: flex;
+  flex-direction: column;
+  font-size: xx-small;
+  text-align: center;
+  grid-column: 1 / span 1 ;
+  grid-row: 1 / span 1;
+  border: 1px solid gray;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 25px;
+ 
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 2;
+  border: 1px solid gray;
+  font-size: xx-small;
+  text-align: center;
+
+}
+
+/* .posts img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+} */
+
+/* .post {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  grid-column: 1 / span 1 ;
+  grid-row: 1 / span 1;
+  border: 1px solid gray;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 20px;
+} */
+
+
+/* .contacts {
+  /* grid-column: span 2; 
+  grid-row: 3fr / span 2;
+  border: 1px solid red;
+} 

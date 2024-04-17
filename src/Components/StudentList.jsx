@@ -7,25 +7,25 @@ function StudentList({ data }) {
   return (
     <div>
       <h2>All Students</h2>
-      <ul>
-        {data.map((student) => (
-          <li key={student.id}>
-            <div>
-              <img src={student.profilePhoto} alt="Profile" />
-            </div>
-            <div>
-              <h3>{student.names.preferredName} {student.names.middleName[0]}. {student.names.surname}</h3>
-              <p>Username: {student.username}</p>
-              <p>Birthday: {new Date(student.dob).toLocaleString('default', { month: 'long', day: "numeric", year:"numeric"})}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <p>Total Students: {data.length}</p>
+      {data.map((student) => (
+        <div key={student.id} className="card"> {/* Apply appropriate CSS class for card styling */}
+          <div>
+            <img src={student.profilePhoto} alt="Profile" />
+          </div>
+          <div>
+            <h3>{student.names.preferredName} {student.names.middleName[0]}. {student.names.surname}</h3>
+            <p>Username: {student.username}</p>
+            <p>Birthday: {new Date(student.dob).toLocaleString('default', { month: 'long', day: "numeric", year:"numeric"})}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
 export default StudentList;
+
 
 
 
@@ -77,3 +77,9 @@ App  (Contains everything below)
 
 
 */ 
+
+/*
+
+
+
+*/

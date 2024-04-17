@@ -4,7 +4,6 @@ import "./index.css";
 import NavBar from "./Components/NavBar";
 import CohortList from "./Components/CohortList";
 import StudentList from "./Components/StudentList";
-import CodewarsDetails from "./Components/CodewarsDetails";
 import data from "./data/data.json";
 
 
