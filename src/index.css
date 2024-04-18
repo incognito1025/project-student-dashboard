@@ -169,8 +169,8 @@ body,
 } */
 
 
-/* .contacts {
-  /* grid-column: span 2; 
+ .contacts {
+  grid-column: span 2; 
   grid-row: 3fr / span 2;
   border: 1px solid red;
 } 
