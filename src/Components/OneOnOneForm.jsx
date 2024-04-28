@@ -1,48 +1,59 @@
 import React, { useState } from "react";
 
-function OneOnOneForm(onAddNote) {
-     const [commenterName, setCommenterName] = useState("");
-     const [comment, setComment] = useState("");
-     
-     const handleFormSubmit = (event) => {
-          event.preventDefault();
-          if (commenterName && comment) {
-               const newNote = {
-                    commenterName: commenterName,
-                    comment: comment,
-                    timestamp: new Date().toLocaleString(),
-               };
-               onAddNote(newNote);
-               setCommenterName("");
-               setComment("");
-          }
-     };
 
-return (
-     <form onSubmit={handleFormSubmit}>
-          <label>
-               Commenter Name:
-               <input 
-                    type="text"
-                    value={commenterName}
-                    onChange={(event) => setCommenterName(event.target.value)}
-               />
-          </label>
-          <br />
-          <label>
-               Comment:
-               <textarea
-                    value={comment}
-                    onChange={(event) => setComment(event.target.value)}
-               />
-          </label>
-          <br />
-          <button type="submit">Submit</button>
-     </form>
-);
+function OneOnOneForm({ onAddNote }) {
+  const [commenterName, setCommenterName] = useState("");
+  const [comment, setComment] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (commenterName && comment) {
+      const newNote = {
+        commenterName: commenterName,
+        comment: comment,
+        timestamp: new Date().toLocaleString(),
+      };
+      // Call the onAddNote function passed as a prop to add the new note
+      onAddNote(newNote);
+      // Clear the input fields after submitting the form
+      setCommenterName("");
+      setComment("");
+      setErrorMessage(""); // Reset error message
+    } else {
+      setErrorMessage("Please fill out all fields."); // Display error message
+    }
+  };
+
+  return (
+    <form onSubmit={handleFormSubmit}>
+      <label>
+        Commenter Name:
+        <input
+          type="text"
+          value={commenterName}
+          onChange={(event) => setCommenterName(event.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Comment:
+        <textarea
+          value={comment}
+          onChange={(event) => setComment(event.target.value)}
+        />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+      {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message if present */}
+    </form>
+  );
 }
 
 export default OneOnOneForm;
+
+
+
 
 
 /*

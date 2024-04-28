@@ -1,23 +1,34 @@
+import React from "react";
 import CodewarsDetails from "./CodewarsDetails";
 import ScoreDetails from "./ScoreDetails";
 import CertificationDetails from "./CertificationDetails";
+import OneOnOneSection from "./OneOnOneSection";
 
+function StudentDetails({ student }) {
+  return (
+    <div className="student-details">
+      <h4>Student Details</h4>
+      <div className="child-components">
+        <CodewarsDetails student={student} />
+        <div className="horizontal-details">
+          <ScoreDetails student={student} />
+          <CertificationDetails student={student} />
 
-function StudentDetails() {
-    return (
-        <div>
-            <CodewarsDetails student={student} />
-            <ScoreDetails student={student} />
-            <CertificationDetails student={student} />
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default StudentDetails;
 
 
+
+
+
 /*
 
+   00.
 
 {
     "id": "2Nxf4T1",
@@ -63,4 +74,25 @@ App  (Contains everything below)
                OneOnOneNotesList  (View notes all ready written)
 
 
+
+               import React from "react";
+import CodewarsDetails from "./CodewarsDetails";
+import ScoreDetails from "./ScoreDetails";
+import CertificationDetails from "./CertificationDetails";
+
+
+function StudentDetails({ student }) {
+  return (
+    <div className="student-details">
+      <h4>Student Details</h4>
+      <div className="child-components">
+        <CodewarsDetails student={student} />
+        <ScoreDetails student={student} />
+        <CertificationDetails student={student} />
+      </div>
+    </div>
+  );
+}
+
+export default StudentDetails;
 */ 

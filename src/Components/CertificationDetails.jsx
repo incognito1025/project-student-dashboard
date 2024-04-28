@@ -1,27 +1,51 @@
-import React from "react"
+import React from "react";
 
-function CertificationDetails( { student }) {
 
-  const isOnTrack = 
+
+function CertificationDetails({ student }) {
+  // Determine on-track status
+  const isOnTrack =
     student.certifications.resume &&
     student.certifications.linkedin &&
     student.certifications.github &&
     student.certifications.mockInterview &&
     student.codewars.current.total > 600;
 
-    return (
-        <div>
-            <h3>Certification Details</h3>
-            <p>On-track Status: {isOnTrack ? "On Track" : "Off Track"}</p>
-        </div>
-    );
+  // Display certifications as emojis or icons
+  const resumeIcon = student.certifications.resume ? "✅" : "❌";
+  const linkedinIcon = student.certifications.linkedin ? "✅" : "❌";
+  const githubIcon = student.certifications.github ? "✅" : "❌";
+  const mockInterviewIcon = student.certifications.mockInterview ? "✅" : "❌";
+
+  return (
+    <div className="grid-container">
+      <h4>Certification Details</h4>
+      <p>On-track Status: {isOnTrack ? <span>"On Track"</span> : <span>"Off Track"</span>}</p>
+      <div className="card">
+      <ul>
+        <li>Resume: {resumeIcon}</li>
+        <li>LinkedIn: {linkedinIcon}</li>
+        <li>GitHub: {githubIcon}</li>
+        <li>Mock Interview: {mockInterviewIcon}</li>
+      </ul>
+      </div>
+    </div>
+  );
 }
 
 export default CertificationDetails;
 
 
+
 /*
 *
+
+
+   - The student has a resume certification (e.g. `certifications.resume` is `true`).
+   - The student has a LinkedIn certification (e.g. `certifications.linkedin` is `true`).
+   - The student has a GitHub certification (e.g. `certifications.github` is `true`).
+   - The student has a mock interview certification (e.g. `certifications.mockInterview` is `true`).
+   - The student has a current CodeWars score that is over 600.
 
 
 {

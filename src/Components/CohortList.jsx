@@ -1,12 +1,21 @@
 import { useState } from "react";
 
-export default function CohortList({ data }) {
+
+export default function CohortList({ dataState, studentArray, onCohortClick }) {
   const [heading, setHeading] = useState("All Students");
 
-  const updateHeading = (event) => setHeading(event.target.innerText);
+  const updateHeading = (event) => {
+    const text = event.target?.innerText;
+    if (text) {
+      setHeading(text);
+    }
+    console.log(text)
+  };
+
+  
 
   // Extracting unique cohort names and sorting them
-  const uniqueCohortNames = [...new Set(data.map(({ cohort }) => cohort.cohortCode))];
+  const uniqueCohortNames = [...new Set(dataState.map(({ cohort }) => cohort.cohortCode))];
   const sortedUniqueCohortNames = uniqueCohortNames.sort((a, b) => {
     // Extracting the year from the cohort code and converting it to a number
     const yearA = parseInt(a.match(/\d+/)[0]);
@@ -14,19 +23,25 @@ export default function CohortList({ data }) {
     // Sorting in descending order based on the year
     return yearB - yearA;
   });
-  
 
   return (
     <main>
-      <h1>{heading}</h1>
-      <sidebar>
+      <div className="cohort-students">
+      <div className="cohort-list"> {/* Use a div instead of <sidebar> */}
+      <h3>Choose a Cohort by Start Date</h3>
         {sortedUniqueCohortNames.map((cohortName) => (
-          <li key={cohortName} onClick={updateHeading}>{cohortName.replace("2", " 2")}</li>
+          <h4 key={cohortName} onClick={onCohortClick}>
+            {cohortName.replace("2", " 2")}
+          </h4>
         ))}
-      </sidebar>
+      </div>
+      </div>
     </main>
   );
 }
+
+
+
 
 
 

@@ -1,6 +1,7 @@
+
 function NavBar() {
     return (
-        <div className="navbar-wrapper">
+        <div>
             <nav className="navbar">
                 <h1>Student Dashboard</h1>
             </nav>

@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function CodewarsDetails({ student }) {
     const currentTotal = student.codewars.current.total;
 
@@ -9,16 +10,20 @@ function CodewarsDetails({ student }) {
 
     return (
         <div>
-            <h3>Codewar Score</h3>
+            <h4>Codewars Score</h4>
             {currentTotal > 600 ? (
                 <div>
                     <label>
                         <input type="checkbox" onChange={handleCheckboxChange} />
+                        <span className="icon">&#10003;</span> {/* Check symbol */}
                         Codewars Score over 600
                     </label>
                 </div>
             ) : (
-                <p>No Codewars Score over 600</p>
+                <p>
+                    <span className="icon">&#10007;</span> {/* Cross symbol */}
+                    No Codewars Score over 600
+                </p>
             )}
         </div>
     );
@@ -26,9 +31,10 @@ function CodewarsDetails({ student }) {
 
 export default CodewarsDetails;
 
+
+
 /*
-
-
+   - The student has a current CodeWars score that is over 600.
 {
     "id": "2Nxf4T1",
     "names": {

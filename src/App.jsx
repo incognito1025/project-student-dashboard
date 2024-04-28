@@ -4,18 +4,42 @@ import "./index.css";
 import NavBar from "./Components/NavBar";
 import CohortList from "./Components/CohortList";
 import StudentList from "./Components/StudentList";
+//import NavBar from "./Components/NavBar.css";
+//import CohortList from "./Components/CohortList.css";
+//import StudentList from "./Components/StudentList.css";
 import data from "./data/data.json";
 
 
 
 function App() {
+
+  const [dataState, setDataState] = useState(data)
+
+  const [studentArray, setStudentArray] = useState(dataState)
+
+  const [selectedCohort, setSelectedCohort] = useState(null);
+
+  const [heading, setHeading] = useState("All Students");
+
+  // const updateHeading = (event) => {
+  //   const text = event.target?.innerText;
+  //   if (text) {
+  //     setHeading(text);
+  //   }
+  //   console.log(text)
+  // };
+
+  const onCohortClick = (event) => {
+    setStudentArray(event.target.innerText === "All Students" ? [...dataState] : dataState.filter(student => student.cohort.cohortCode === event.target.innerText.replace(" 2", "2")))
+    setHeading(event.target.innerText)
+  }
   
   return (
     <div className="App">
       <NavBar />
-        <div className="grid-container">
-      <CohortList data = {data}/>
-      <StudentList data = {data} />
+        <div>
+      <CohortList dataState={dataState} studentArray = {studentArray} onCohortClick={onCohortClick}/>
+      <StudentList  heading={heading} selectedCohort={selectedCohort} studentArray={studentArray} />
     </div>
       </div>
   ); 
